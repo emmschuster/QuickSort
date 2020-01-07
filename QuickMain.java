@@ -4,9 +4,10 @@ public class QuickMain {
 		int[] mlist= {6,5,3,1,4,2,2,8,7};
 		System.out.println("Anfangsarray: ");
 		show(mlist);
-//		quicks(mlist,0,((mlist.length)-1));
-//		System.out.println("Endzustand: ");
-//		show(mlist);
+		int laenge = mlist.length;
+		quicks(mlist,0,(laenge-1));
+		System.out.println("Endzustand: ");
+		show(mlist);
 	}
 	/*if __name__ == "__main__":
     mlist = [6,5,3,1,4,2,2,8,7]
@@ -31,7 +32,7 @@ public class QuickMain {
 	
 	private static void quicks(int[] array, int start, int end){
 		if(start >= end) {
-			System.out.println("Start darf nicht groesser als ende sein!!!");
+			return;
 		}
 		//darf i da p schu deklarieren oder soll i des aussen machen?
 		int p= partition(array, start, end);
@@ -39,6 +40,7 @@ public class QuickMain {
 		quicks(array, start, p-1);
 		quicks(array, p+1, end);
 	}
+	
 	private static int partition (int[] array, int start, int end){
 		int pivot=array[start];
 		int low = start +1;
